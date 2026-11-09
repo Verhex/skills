@@ -1,9 +1,9 @@
 ---
-name: design-critic
-description: Review a design artefact - spec, mock-up, prototype or implemented screen, on any platform - with evidence-backed findings and a PASS / REVISE / NO-GO verdict.
+name: interface-review
+description: Review a design artefact (spec, mock-up, prototype or implemented screen, any platform) with evidence-backed findings and a PASS / REVISE / NO-GO verdict. Use for "review this mockup", "critique this screen", "is this design ready".
 ---
 
-# Design critic
+# Interface review
 
 Review design work against evidence and give a verdict that someone can act on. This works for any product
 and surface: mobile, web, desktop, terminal, voice, embedded. It judges the work against the product's own
@@ -70,15 +70,24 @@ No taste-only language such as "feels off". State the observable problem and its
 - **PASS**: no BLOCKER or HIGH finding; critical states and target environments have credible evidence;
   nothing claims to be finished that is not; lower findings are stated as non-blocking.
 - **REVISE**: the direction works, and one or more material problems must be fixed before acceptance.
-- **NO-GO**: the design shows something untrue; a permission or tenant boundary is unsafe; a core workflow
-  or its recovery is missing; it contradicts the accepted direction; accessibility blocks the main job; it
-  depends on something that does not exist; or the evidence is too thin to judge a critical claim.
+- **NO-GO**: always with one reason class, because the next step differs for each:
+  - *design failure*: it shows something untrue, a core workflow or its recovery is missing, it contradicts
+    the accepted direction, accessibility blocks the main job, or it depends on something that does not
+    exist. The design must change.
+  - *safety failure*: a permission or tenant boundary is unsafe. The design must change before anything
+    else is discussed.
+  - *insufficient evidence*: a critical claim cannot be judged from what was provided. Nothing is known to
+    be wrong; the missing evidence must be supplied and the review repeated.
+
+Lenses 1 (truth), 2 (workflow) and 7 (accessibility of the main job) can each produce a NO-GO alone. The
+others raise findings up to HIGH unless they break one of those three.
 
 ## Output
 
     ROLE: independent reviewer | maker's self-review
     ARTEFACT: kind and exact version
     VERDICT: PASS | REVISE | NO-GO   (a self-review lists findings without an independent PASS)
+    NO-GO REASON: design failure | safety failure | insufficient evidence   (only with NO-GO)
     SCOPE: surfaces, states and evidence reviewed
     FINDINGS: ordered by severity
     EVIDENCE GAPS: what could not be judged

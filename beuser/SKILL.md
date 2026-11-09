@@ -1,6 +1,6 @@
 ---
 name: beuser
-description: Write the journey spec before building anything a person or company uses, and walk it on the assembled product afterwards - AI agents act as the persona on a real instance (app, web, CLI, API, device), walk every branch and give the acceptance verdict.
+description: Write the journey spec before building anything a person or company uses, then walk it on the assembled product - AI agents act as the persona on a real instance (app, web, CLI, API, device), walk the branches and give the acceptance verdict. Use for "test this as a user", "walk the onboarding", "is this ready to accept".
 ---
 
 # BeUser
@@ -29,8 +29,15 @@ Write this as part of the plan, before code:
 - **Borrowed shape.** Name the proven product that does the same job and the behaviour copied from it. Mark
   what no proven product covers; those steps carry the most risk.
 
+- **Branch list.** A branch is a journey a real person can actually be on, not every combination of persona,
+  state and device. Multiplying the dimensions produces hundreds of rows nobody will meet; list the journeys
+  that exist, drop combinations that cannot occur or that repeat another branch's path, and write down what
+  was dropped and why. Whoever owns the product approves the list before the walk.
+
+A filled example is in [journey-spec.md](journey-spec.md).
+
 Done when every branch has a starting state, choices, an expected outcome and next steps for each refusal,
-and the twin-path table has no gap.
+the twin-path table has no gap, and the branch list is approved.
 
 ## 2. Walk, after the pieces are joined
 
@@ -66,6 +73,12 @@ Done when every branch has a verdict tied to the exact version.
 - A finding is fixed before acceptance, then that branch and its neighbours are walked again on the new
   build. It is not pushed to a later release.
 - The person who accepts reads the report; they do not have to walk.
+
+## Output
+
+- Before building: the journey spec with its approved branch list.
+- After the walk: the verdict table (branch, persona, verdict, finding, next step) tied to the exact version,
+  the transcripts, and the list of dropped combinations.
 
 ## Safety
 

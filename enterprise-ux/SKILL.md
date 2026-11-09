@@ -1,6 +1,6 @@
 ---
 name: enterprise-ux
-description: Design governance and administration surfaces - organisation and resource scope, users and roles, permissions, policies, approvals, audit logs, secrets, budgets and cost limits, bulk administration - in any product and on any surface, without degrading the single-user experience.
+description: Design governance and administration surfaces in any product - organisation and resource scope, roles, permissions, policies, approvals, audit logs, secrets, budgets, bulk administration. Use for "design the admin console", "the permissions screen", "team settings", "the audit log view".
 ---
 
 # Enterprise UX
@@ -40,6 +40,9 @@ Done when each control in the design points to the real rule that enforces it, a
 - Cost views tell observed usage, estimate, budget, hard limit and provider-reported figures apart.
 - Differences between environments are visible before something is deployed or run.
 - Audit records cannot be edited from the interface, can be filtered, and link to the related evidence.
+  That is a property of the interface only. State the integrity the system really provides (append-only
+  storage, signing, an external copy) and show it only where it is implemented. Never label records
+  "immutable" or "tamper-proof" on the strength of a missing edit button.
 - Acting as another user or with delegated rights is unmistakable, bounded and logged.
 - Export respects redaction, permission and tenant boundaries.
 
@@ -78,6 +81,16 @@ zone.
 
 ## Output
 
-The scope and actor model; the effective-permission explanation; approval and policy flows; the audit and
-evidence model; secret and cost handling; the adverse-state matrix; behaviour at scale; and what must be
-proven about tenant isolation. A generic admin dashboard without these is a failed design.
+- the scope and actor model, implemented versus planned;
+- the effective-permission explanation;
+- approval and policy flows;
+- the audit and evidence model, with the integrity the system really provides;
+- secret and cost handling;
+- the adverse-state matrix;
+- behaviour at scale;
+- what must be proven about tenant isolation.
+
+A generic admin dashboard without these is a failed design.
+
+Neighbouring moments, if those skills are installed: approvals for AI agent actions are `agentic-ux`; the
+product's overall model is `product-design`.

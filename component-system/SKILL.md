@@ -1,9 +1,9 @@
 ---
-name: design-system
-description: Define or change a shared UI component, variant, design token or component rule in any product (web, mobile, desktop, terminal, voice or embedded) - reusable system decisions rather than a one-off screen.
+name: component-system
+description: Define or change a shared UI component, variant, design token or component rule in any product (web, mobile, desktop, terminal, voice, embedded). Use for "add this to the component library", "define the tokens", "make this reusable".
 ---
 
-# Design system
+# Component system
 
 Turn patterns the product has already proven into a governed, reusable system. This skill fixes the order of
 work and what a shared piece must specify. It prescribes no framework, component library, token format or
@@ -54,7 +54,12 @@ A component with only its happy state is not complete.
 
 ## 4. Tokens
 
-Use three layers, in whatever format the project's tooling supports:
+Tokens exist for values that repeat and have to be managed together. A one-off prototype, a small tool built
+from the platform's native controls, a terminal program that inherits the user's colours, or a product with
+no shared components yet may need few or none; say so and stop. Do not add layers the product has no use for.
+
+Where values do repeat across components, use up to three layers, in whatever format the project's tooling
+supports:
 
 - **Primitive**: raw values (a colour, a size, a duration). Components never read these directly.
 - **Semantic**: product meaning independent of any component (surface, text, danger, focus, spacing step).
@@ -64,7 +69,8 @@ Reuse a fitting token before adding one. State meaning stays the same across the
 A user's theme, contrast, text-size and motion preferences are data to honour and migrate, never to discard.
 One source generates every platform's values; a hand-edited generated file is a defect.
 
-Done when no component in the change reads a raw value and every new token names what it means.
+Done when no shared component in the change reads a repeated raw value, every new token names what it means,
+and any decision to skip tokens is stated with its reason.
 
 ## 5. Same meaning, native form
 
@@ -89,5 +95,19 @@ assistive technology, token generation consistency, and rendered states on each 
 that only mirror low-impact styling. A gallery or static specimen shows the design, not that the product uses
 it.
 
-Done when each platform in scope has real rendered evidence for the changed states, and anything unverified
-is listed as unverified.
+For a contract that is designed but not yet built, the proof is the contract itself with every item of step 3
+answered; rendered evidence becomes due when it is implemented.
+
+Done when a built change has real rendered evidence for the changed states on each platform in scope, a
+designed-only change has a complete contract, and anything unverified is listed as unverified.
+
+## Output
+
+- the workflow and screens the change comes from;
+- the component contract, item by item;
+- tokens added, reused or deliberately skipped, with what each means;
+- per-platform adaptations;
+- evidence gathered, and what is still unverified.
+
+Neighbouring moments, if those skills are installed: choosing the colours, type and tone themselves is
+`visual-language`; reviewing the result is `interface-review`.

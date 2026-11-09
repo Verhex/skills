@@ -1,6 +1,6 @@
 ---
 name: workspace-design
-description: Design an app's shell and navigation structure - screens, tabs, panels, sheets, split views, sidebars, command or search entry, focus and state restoration, saved layouts - for any form factor: phone, tablet, desktop, web, terminal, TV or watch.
+description: Design an app's shell and navigation structure for any form factor (phone, tablet, desktop, web, terminal, TV, watch) - screens, tabs, panels, sheets, split views, sidebars, command or search entry, focus and state restoration, saved layouts. Use for "design the navigation", "lay out the app shell", "how should the panels work".
 ---
 
 # Workspace design
@@ -82,9 +82,22 @@ project. Never silently discard it.
 
 ## 6. Check
 
-Provide a map of places and transitions, the input routes for the main workflow, the focus and back cases,
-captures at each size class in scope, and restoration tested by actually ending and relaunching the app.
-Proof comes from the real app on a real device or window; a mock-up shows hierarchy only.
+- **Designed, not yet built**: every step above is answered for each form factor in scope, and the main
+  workflow, the back and focus cases and the restoration cases are written as cases someone can later test.
+  A mock-up shows hierarchy only; it proves no behaviour.
+- **Built**: captures at each size class in scope, and restoration tested by actually ending and relaunching
+  the app on a real device or window.
 
-Done when the main workflow, the adverse paths and restoration have real evidence on every form factor in
-scope, and untested ones are listed as untested.
+Done when a design has its cases written for every form factor in scope, a built shell has real evidence for
+the main workflow, adverse paths and restoration, and untested ones are listed as untested.
+
+## Output
+
+- the map of places and transitions;
+- the shell model per form factor, with what collapses, stacks or moves;
+- input routes for the main workflow, and the focus and back cases;
+- what is restored after leaving, and how saved layouts are versioned;
+- evidence gathered, and what is still untested.
+
+Neighbouring moments, if those skills are installed: deciding what the product's objects and workflows are
+comes first and is `product-design`; reusable components inside the shell are `component-system`.

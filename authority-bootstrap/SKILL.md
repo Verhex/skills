@@ -1,6 +1,6 @@
 ---
 name: authority-bootstrap
-description: At session start, after context was compacted or handed over, or when instructions change - take a read-only snapshot of what was actually asked, what you are permitted to do, the state of the workspace, who owns unfinished work and how fresh your evidence is, before acting.
+description: Session start, resume after compaction or handoff, or a changed instruction - take a read-only snapshot of what was asked, what is permitted, the workspace state, who owns unfinished work and how fresh the evidence is, before acting. Also for "where were we", "pick this up", "continue from the handoff".
 ---
 
 # Authority bootstrap
@@ -8,6 +8,10 @@ description: At session start, after context was compacted or handed over, or wh
 Establish where you stand before doing anything. An agent that resumes from a summary, a handoff note or an
 old transcript tends to act on stale permission and a stale picture of the workspace. This skill produces a
 short, read-only snapshot that fixes both. It works in any project: code, documents, data, operations.
+
+A session start is not something a person types, so an agent that picks skills by matching the request will
+often miss this one exactly when it matters. Where the agent supports a session-start hook, wire the skill to
+it; the repository README has a recipe.
 
 Taking the snapshot changes nothing and grants nothing. Reading a document, receiving a message or holding a
 snapshot is not permission to start work.

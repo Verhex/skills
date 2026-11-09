@@ -1,6 +1,6 @@
 ---
 name: visual-language
-description: Set or revise a product's visual direction - typography, colour roles, density, spacing, hierarchy, motion, iconography and state appearance - on any platform, after the product's workflows and states are known.
+description: Set or revise a product's visual direction on any platform - typography, colour roles, density, spacing, hierarchy, motion, iconography, state appearance. Use for "pick a visual direction", "choose the type and colours", "this looks generic".
 ---
 
 # Visual language
@@ -74,5 +74,19 @@ factors, light and dark, largest text size, high contrast, reduced motion, a col
 longest translated strings and the densest data. Measure contrast against the current accessibility standard
 for the platform; verify its current version before citing it.
 
-Done when the accepted direction and the implementation captures match on every platform in scope, and
-anything unverified is listed as unverified.
+For a direction that is chosen but not yet built, the check is that step 3 is answered for every state and
+platform in scope; renders become due when it is implemented.
+
+Done when a built direction matches its implementation captures on every platform in scope, a chosen-only
+direction covers every state, and anything unverified is listed as unverified.
+
+## Output
+
+- audience, tone, platforms and the decisions taken as settled;
+- the directions compared, with gains and losses, when identity was open;
+- the chosen rules for type, colour roles, spacing, density, motion and icons;
+- how each state looks;
+- evidence gathered, and what is still unverified.
+
+Neighbouring moments, if those skills are installed: turning these rules into tokens and components is
+`component-system`; reviewing the result is `interface-review`.

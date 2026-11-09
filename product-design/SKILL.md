@@ -1,6 +1,6 @@
 ---
 name: product-design
-description: Shape a product's model before its screens - users and jobs, objects and relationships, main workflow, information architecture, navigation logic, progressive disclosure from first-time to expert and from one person to an organisation - for any product type or platform.
+description: Shape a product's model before its screens, for any product type or platform - users and jobs, objects and relationships, main workflow, information architecture, progressive disclosure. Use for "what should this product be", "define the user flows", "structure the information".
 ---
 
 # Product design
@@ -79,3 +79,6 @@ A short product contract:
 - the evidence that will show it works, tied to real capabilities.
 
 Do not move to visual polish while the model still has contradictory ownership or invented states.
+
+Neighbouring moments, if those skills are installed: arranging the model into screens, tabs and panels is
+`workspace-design`; roles, permissions and audit are `enterprise-ux`; showing AI agent work is `agentic-ux`.

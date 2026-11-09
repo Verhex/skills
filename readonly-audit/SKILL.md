@@ -1,6 +1,6 @@
 ---
 name: readonly-audit
-description: Investigate a bounded question about a codebase, system, running service or incident through read-only evidence, and report coverage, findings and proof limits - what works, what only appears to, what cannot be proven. Changes nothing.
+description: Investigate a bounded question about a codebase, system, running service or incident through read-only evidence and report coverage, findings and proof limits. Changes nothing and runs nothing. Use for "audit this", "does this really work", "is this actually wired up", "what happened in this incident".
 ---
 
 # Read-only audit
@@ -78,7 +78,7 @@ For a contradiction, name the sources, how fresh each is, and which one governs 
 settled, mark the dependent conclusion as on hold and name the evidence or decision that would settle it. A
 hold in the report changes nothing in the system and stops no unrelated work.
 
-## 5. Report
+## Output
 
 Lead with the conclusion, in plain language. Then give:
 
@@ -89,6 +89,14 @@ Lead with the conclusion, in plain language. Then give:
 - facts, proposals, assumptions and unknowns kept apart, including evidence against the conclusion.
 
 Explain confidence from the evidence; do not invent a numeric score. Leave out raw logs and large code dumps.
-Finish with the recommended next decision or the evidence still needed.
+
+Close with three lists, so the reader can choose the next step:
+
+1. **Settled from source**: claims the code and configuration alone decide.
+2. **Settled from existing records**: claims decided by retained runs, logs or captures.
+3. **Needs an active check**: claims that only running something can decide, with the exact check to run.
+   This audit did not run it. A question such as "does this really work" usually ends here.
+
+Then the recommended next decision. A filled example is in [report-template.md](report-template.md).
 
 Done when every claim in the report carries its evidence kind, and nothing in the system was changed.

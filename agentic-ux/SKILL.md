@@ -1,6 +1,6 @@
 ---
 name: agentic-ux
-description: Design how a product shows and controls AI agent or automation work - tasks, steps, tool calls, approvals, verification, autonomy levels, checkpoints, pause/resume/cancel, failure and human takeover - on any surface: chat, app, web, terminal, voice or notification.
+description: Design how a product shows and controls AI agent or automation work, on any surface (chat, app, web, terminal, voice, notification) - task and step state, tool calls, approvals, autonomy levels, pause/resume/cancel, failure and human takeover. Use for "design the agent run view", "how should approvals look", "show what the agent is doing".
 ---
 
 # Agentic UX

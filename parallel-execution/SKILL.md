@@ -1,6 +1,6 @@
 ---
 name: parallel-execution
-description: Split work across several AI agents or sessions running at once and merge the results - lane briefs, disjoint write ownership, one writer per workspace, supervision, fan-in order and conflict rules.
+description: Split work across several AI agents or sessions running at once and merge the results - lane briefs, write and resource ownership, supervision, fan-in order and conflict rules. Use for "run these in parallel", "dispatch subagents", "fan this out", "merge the lanes".
 ---
 
 # Parallel execution
@@ -16,8 +16,12 @@ Split only when the pieces are truly independent, there is a real point where th
 outweighs the cost of coordinating. A small or tightly coupled task gets one writer. The number of lanes
 follows the dependency structure and what the machine and the budget can carry, never a fixed habit.
 
-Done when each lane has a responsibility that can be finished and checked without waiting on another lane, or
-the task is kept whole.
+Two lanes with separate files can still depend on the same undecided question: an interface, a data shape, a
+naming choice. Settle that decision before splitting, or give it to exactly one lane and make the others wait
+for it. Separate files do not make lanes independent; separate decisions do.
+
+Done when each lane has a responsibility that can be finished and checked without waiting on another lane and
+every shared decision has one owner, or the task is kept whole.
 
 ## 2. Lane brief
 
@@ -27,21 +31,28 @@ Each lane gets a written brief. The agent knows nothing the brief does not say.
 - the task and the result expected;
 - what it may read, what it may write, and what it must not touch;
 - that it is the only writer of its paths;
+- each shared resource it will touch at run time (a database, a service, a port, a device, an account) and
+  how: its own private instance, read-only, or exclusive use by turn;
+- which decisions it owns and which it must take as given;
 - what to hand back: the changed files, and the evidence of what was checked;
 - limits on time, cost and retries, and when to stop and report;
 - what it may not do: merge, publish, deploy, or change shared settings.
 
-Put what is common to all lanes in one shared brief and keep the per-lane part short.
+Put what is common to all lanes in one shared brief and keep the per-lane part short. A filled example is in
+[lane-brief.md](lane-brief.md).
 
-Done when no two briefs list the same writable path.
+Done when no two briefs list the same writable path, and no two list the same run-time resource without a
+stated way of sharing it.
 
 ## 3. Lane rules
 
 - **One writer per workspace.** Give each lane its own working copy (a branch and worktree, a folder, a
-  sandbox). Before starting, check nothing else is writing there. A separate working copy prevents collisions;
-  it does not isolate processes, network access or secrets.
-- **Shared heavy resources take turns.** Builds, full test runs, ports, databases and rate-limited services
-  go through one lock or queue, so lanes do not starve or corrupt each other.
+  sandbox). Before starting, check nothing else is writing there.
+- **File isolation is not run-time isolation.** Two lanes in separate working copies still share whatever
+  they both reach when they run: the same database, container, port, cache or account. A lane's test result
+  is its own only when its run-time resources were private or held exclusively.
+- **Shared resources take turns.** Builds, full test runs, ports, databases and rate-limited services go
+  through one lock or queue, so lanes do not starve or corrupt each other.
 - **Match the lane to what the agent can do.** An agent whose sandbox cannot run something (a network test, a
   device, a GUI) hands that check to the coordinator with exact instructions; it does not claim it passed.
 - **A report is not verification.** A lane's own summary is a claim. Evidence is the diff and the output of
@@ -72,7 +83,7 @@ conflict appears or its budget is spent; let unrelated lanes continue.
 Done when the joined result passes its checks and every rejected or deferred lane result is listed with its
 reason.
 
-## 6. Deliver
+## Output
 
 Report each lane's inputs and outputs, the exact joined change, the evidence at each join, checks and
 failures, open limits and the next step. Do not clean up shared state, force a result through or restart

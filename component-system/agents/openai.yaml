@@ -1,0 +1,6 @@
+interface:
+  display_name: "Component System"
+  short_description: "Component contracts and tokens for any platform"
+  default_prompt: "Use $component-system to define or change shared components, variants and design tokens."
+policy:
+  allow_implicit_invocation: true
