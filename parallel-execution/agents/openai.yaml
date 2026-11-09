@@ -1,0 +1,6 @@
+interface:
+  display_name: "Parallel Execution"
+  short_description: "Split work across agents and merge it safely"
+  default_prompt: "Use $parallel-execution to cut lanes, brief them, supervise and fan the results in."
+policy:
+  allow_implicit_invocation: true

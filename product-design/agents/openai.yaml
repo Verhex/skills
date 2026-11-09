@@ -1,0 +1,6 @@
+interface:
+  display_name: "Product Design"
+  short_description: "Product model before screens"
+  default_prompt: "Use $product-design to shape users, objects, main workflow and information architecture."
+policy:
+  allow_implicit_invocation: true

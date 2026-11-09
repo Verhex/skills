@@ -1,0 +1,6 @@
+interface:
+  display_name: "Agentic UX"
+  short_description: "Truthful display and control of agent work"
+  default_prompt: "Use $agentic-ux to design truthful state, approval, intervention and recovery for agent work."
+policy:
+  allow_implicit_invocation: true

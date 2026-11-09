@@ -1,0 +1,6 @@
+interface:
+  display_name: "Read-only Audit"
+  short_description: "Evidence-graded audit that changes nothing"
+  default_prompt: "Use $readonly-audit to investigate a bounded question through read-only evidence and report proof limits."
+policy:
+  allow_implicit_invocation: true

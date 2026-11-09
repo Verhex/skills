@@ -1,0 +1,6 @@
+interface:
+  display_name: "Design Critic"
+  short_description: "Evidence-backed design review with a verdict"
+  default_prompt: "Use $design-critic to review this design artefact and give a PASS, REVISE or NO-GO verdict."
+policy:
+  allow_implicit_invocation: true

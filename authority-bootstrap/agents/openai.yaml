@@ -1,0 +1,6 @@
+interface:
+  display_name: "Authority Bootstrap"
+  short_description: "Read-only snapshot of instructions and workspace"
+  default_prompt: "Use $authority-bootstrap to take a read-only snapshot of the instruction, permissions and workspace state before acting."
+policy:
+  allow_implicit_invocation: true

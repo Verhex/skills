@@ -1,0 +1,6 @@
+interface:
+  display_name: "BeUser"
+  short_description: "Journey spec and persona walk on the real product"
+  default_prompt: "Use $beuser to write the journey spec or walk it as the persona on the assembled product."
+policy:
+  allow_implicit_invocation: true

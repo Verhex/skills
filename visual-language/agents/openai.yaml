@@ -1,0 +1,6 @@
+interface:
+  display_name: "Visual Language"
+  short_description: "Visual direction without an imposed style"
+  default_prompt: "Use $visual-language to set or revise typography, colour roles, density, motion and state appearance."
+policy:
+  allow_implicit_invocation: true

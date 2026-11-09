@@ -1,0 +1,6 @@
+interface:
+  display_name: "Workspace Design"
+  short_description: "App shell and navigation for any form factor"
+  default_prompt: "Use $workspace-design to design the app shell, navigation, focus and state restoration."
+policy:
+  allow_implicit_invocation: true
