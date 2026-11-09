@@ -18,9 +18,16 @@ snapshot is not permission to start work.
 
 ## 1. When to take or refresh it
 
-At session start, and again for the affected parts when the instruction, the scope, the workspace revision,
-ownership of files, or relevant configuration changes. Reuse what has not changed; do not reload every source
-before each small step.
+Take it at session start. Refresh the affected parts, not the whole snapshot, when any of these happens:
+
+- the person gives a new or changed instruction;
+- a permission is granted or withdrawn;
+- the working directory, branch or revision changes;
+- another agent or person starts working on the same files;
+- the session resumes after compaction, a handoff or a long pause;
+- configuration that the task depends on changes.
+
+Reuse what has not changed; do not reload every source before each small step.
 
 ## 2. Establish instructions and scope
 
